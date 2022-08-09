@@ -1,4 +1,5 @@
 function validation() {
+    //console.log('sa');
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
     var login = document.getElementById("login");
@@ -11,17 +12,21 @@ function validation() {
         document.getElementById("semail").innerHTML = "";
     } else {
         document.getElementById("semail").innerHTML = "Please fill correct email id";
-        //return true;
+        //return false;
     }
     if (password == "") {
         document.getElementById("pass").innerHTML = "Please fill the Password";
         return false;
     } else {
         document.getElementById("pass").innerHTML = "";
+        //return true;
     }
 
-    if (!login == ""); {
+    if (!login == "") {
         document.getElementById("pass").innerHTML = "";
+        //return false;
     }
+   
+
 
 }
