@@ -16,7 +16,10 @@ include '../Admin/Dashboard/Connection.php';
     <link href="../Css/main.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-
+            img, svg {
+      vertical-align: middle;
+      width: 100% !important;
+     }
     </style>
 </head>
 
@@ -31,8 +34,7 @@ include '../Admin/Dashboard/Connection.php';
           </div>-->
             <div class="col-sm-12 inner1">
                 <h1 style="text-align:center;color:white; font-weight: bold;font-size: 50px;" class="mt-3">William Felton Russell</h1>
-                <span> <img src="../Image/image 2.png" class="img"></span>
-                <span> <img src="../Image/image.png" class="img1"></sanp>
+               <span class="outer"></span>
             </div>
             <!-- <div class="col-sm-2 inner2" style="min-height:90px;background:black">
             <img src="../Image/image.png" class="img1">
@@ -65,7 +67,8 @@ include '../Admin/Dashboard/Connection.php';
                         <hr class="line">
 
             </div>
-            <div class="col-sm-8  inner">
+            
+            <div class="col-sm-8 inner img-fluid mt-3">
                 <?php
                 $query = "SELECT * FROM blog_tb";
 
@@ -80,6 +83,7 @@ include '../Admin/Dashboard/Connection.php';
                 }
                 ?>
             </div>
+            
             <div class="col-sm-2" style="min-height: 500px; background:green; ">
                 <h5 class="mt-2">NBA RECRODS<h5>
                         <hr class="line">

@@ -6,6 +6,7 @@ if (isset($_POST['login'])) {
     $password = $_POST['password'];
     $password = md5($password);
    
+   
     $sql = "SELECT * FROM login_tb WHERE `Email` ='$email'  AND  `Password` ='$password' ";
 
     $result = mysqli_query($conn, $sql);
@@ -18,8 +19,10 @@ if (isset($_POST['login'])) {
         header('location:AdminPanel.php');
       
     } else {
-        $_SESSION['status'] = "Invalid Password and Email";
+        $_SESSION['status'] = "Invalid Password";
         $_SESSION['status_code']="error";
+        $_SESSION['email']=$_POST['email'];
+        //$_SESSION['password']=$_POST['password'];
         header('location:login.php');
        
     }

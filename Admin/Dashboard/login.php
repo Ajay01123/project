@@ -1,13 +1,27 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
- error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+//  error_reporting(E_ALL);
 
 //session_start();
 
 include 'login_connect.php';
 ?>
+  
+  <?php
+    if (isset($_SESSION['status'])) {
+    ?>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Holy guacamole!</strong> <?php echo $_SESSION['status'];?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+  
+    <?php
+      unset($_SESSION['status']);
+    }
+    ?>
+
 
  
  <!DOCTYPE html>
@@ -53,15 +67,15 @@ include 'login_connect.php';
             
                  
                  <h1 class="text-center mt-5" style="font-size:25px;">Admin Login</h1>
-                 <form action="login_connect.php" method="POST" onsubmit="return validation()">
+                 <form action="login_connect.php" method="POST"id="form" onsubmit="return validation()">
                      <label for="email">Email ID</label>&nbsp &nbsp
-                     <input type="text" id="email" name="email" class="mx-5 " onkeyup="return validation()" >
+                     <input type="email" id="email"  name="email" class="mx-5 "  value="<?php echo $_SESSION['email']; unset($_SESSION['email']);?>" >
                      <span class="text-danger" id="semail" ></span><br><br><br>
                      <label for="password">Password</label>
-                     <input type="password" id="password" class="mx-5" name="password" onkeyup="return validation()">
+                     <input type="password" id="password" class="mx-5" name="password" value="" >
                      <span class="text-danger" id="pass"></span><br><br>
                      <div class=" text-center">
-                         <button type="submit" class="btn btn-success  btn-lg  text-center" id="login" name="login">Login </button>
+                         <button type="submit" class="btn btn-success  btn-lg  text-center"  name="login" value="submit" id="login">Login </button>
                      </div>
                  </form>
              </div>
@@ -73,24 +87,8 @@ include 'login_connect.php';
     <script src="../../js/javascript.js"></script>
    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script>
-<?php
-if(isset($_SESSION['status']) && ($_SESSION['status']!=""))
-{
-  ?>
-  swal({
-    title: "<?php echo $_SESSION['status']; ?>",
-    text: "<?php echo $_SESSION['status_code']; ?>",
-    icon: "warning",
-  });
-  <?php
-  unset($_SESSION['status']);
-}
+   
 
-
-?>
-</script>
 
       
 
